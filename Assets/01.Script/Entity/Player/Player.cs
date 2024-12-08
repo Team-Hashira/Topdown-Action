@@ -1,11 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     [SerializeField] private InputReaderSO _input;
-
-    private void Update()
-    {
-        
-    }
 }

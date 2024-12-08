@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e708bb4dcc44d9748bdb765295f6831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _input: {fileID: 11400000, guid: c9f48272fcb29e04797b7bb313cd7203, type: 2}
 --- !u!114 &2060058877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,7 +680,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

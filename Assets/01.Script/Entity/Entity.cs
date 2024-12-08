@@ -18,19 +18,19 @@ public class Entity : MonoBehaviour
 
     private void AddCompoDictionary()
     {
-        GetComponentsInChildren<IEntityInitComponent>().ToList()
+        GetComponentsInChildren<IEntityInitComponent>(true).ToList()
             .ForEach(component => _compoDict.Add(component.GetType(), component));
     }
 
     public void ComponentInit()
     {
-        _compoDict.Keys.OfType<IEntityInitComponent>().ToList()
+        _compoDict.Values.ToList()
             .ForEach(component => component.Initialize(this));
     }
 
     public void ComponentAfterInit()
     {
-        _compoDict.Keys.OfType<IEntityAfterInitCompo>().ToList()
+        _compoDict.Values.OfType<IEntityAfterInitCompo>().ToList()
             .ForEach(component => component.AfterInit());
     }
 
