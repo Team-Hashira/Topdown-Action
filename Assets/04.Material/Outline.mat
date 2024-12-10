@@ -76,7 +76,7 @@ Material:
     - _IsInline: 0
     - _IsThickLine: 0
     - _Outline: 1
-    - _Scale: 2
+    - _Scale: 1.107
     - _scale: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
