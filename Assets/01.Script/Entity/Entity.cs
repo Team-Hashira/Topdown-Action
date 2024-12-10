@@ -10,7 +10,7 @@ public class Entity : MonoBehaviour
     protected virtual void Awake()
     {
         _compoDict = new Dictionary<Type, IEntityInitComponent>();
-
+        
         AddCompoDictionary();
         ComponentInit();
         ComponentAfterInit();
