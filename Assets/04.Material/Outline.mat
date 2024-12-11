@@ -70,7 +70,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Blink: 0
-    - _Dissolve: 0.408
+    - _Dissolve: 0
     - _DissolveInterval: 0.0448
     - _DissolveNoiseScale: 60
     - _IsInline: 0
