@@ -14,6 +14,12 @@ public class CameraManager : MonoSingleton<CameraManager>
         SettingCurrentCamera();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+            ShakeCamera(8, 8, 0.2f);
+    }
+
     private void SettingCurrentCamera()
     {
         CinemachineVirtualCameraBase currentCam = CinemachineCore.GetVirtualCamera(0);
