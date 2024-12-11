@@ -683,7 +683,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -705,11 +711,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 1915d1f5-b1e7-4160-8741-fc6bfd53df60
+  cloudProjectId: fc535095-ee36-472d-aacd-a48a3775e318
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Topdown-Action
-  organizationId: mymcoding0407
+  organizationId: dong5899
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
