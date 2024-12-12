@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5933e937a5b3d24d8a2e0592f7d9cdb, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  itmeName: "\uB3CC"
-  itmeDescription: "\uC6B0\uC640 \uB3CC\uC774\uB2E4"
+  itemName: "\uB3CC"
+  itemDescription: "\uC774\uAC83\uC740 \uB3CC\uC774\uB2E4."
   itemSprite: {fileID: 21300000, guid: 133177f5811aded4995e8f89f46aee00, type: 3}
   itemType: 0
   maxOverlapAmount: 5
