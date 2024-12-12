@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,5 +21,15 @@ public class Enemy : MonoBehaviour
     public void SetDestination(Vector3 destination)
     {
         _navmeshAgent.destination = destination;
+    }
+
+    public void Attack()
+    {
+        StartCoroutine(CoroutineAttack());
+    }
+
+    private IEnumerator CoroutineAttack()
+    {
+        yield return new WaitForSeconds(1.5f);
     }
 }

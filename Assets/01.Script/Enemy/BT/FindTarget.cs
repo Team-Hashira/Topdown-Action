@@ -3,7 +3,6 @@ using Unity.Behavior;
 using UnityEngine;
 using Composite = Unity.Behavior.Composite;
 using Unity.Properties;
-using VHierarchy.Libs;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "FindTarget", story: "[I] Find target by [range]", category: "Flow", id: "7a04bc7c8d60ac840b66a33da1c95eda")]
