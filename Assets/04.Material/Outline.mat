@@ -75,17 +75,17 @@ Material:
     m_Floats:
     - _Blink: 0
     - _Dissolve: 0
-    - _DissolveInterval: 0.05
+    - _DissolveInterval: 0.1
     - _DissolveNoiseScale: 50
     - _IsInline: 0
     - _IsThickLine: 0
-    - _Outline: 1
-    - _Scale: 1.056
+    - _Outline: 0
+    - _Scale: 1
     - _scale: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _BlinkColor: {r: 0.9883374, g: 0.9883374, b: 0.9883374, a: 1}
-    - _DissolveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _DissolveColor: {r: 1, g: 1, b: 1, a: 0}
     - _LineDir: {r: 1, g: 1, b: 1, a: 1}
     - _NormalMap: {r: 0, g: 0, b: 0, a: 0}
     - _NormalTex: {r: 0, g: 0, b: 0, a: 0}

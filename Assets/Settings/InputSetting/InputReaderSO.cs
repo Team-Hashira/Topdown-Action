@@ -12,6 +12,8 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions
     public event Action OnAttackEvent;
     public event Action OnInteractEvent;
     public event Action<bool> OnSprintEvent;
+    public event Action<Vector2> OnMovementEvent;
+    public event Action<Vector2> OnMouseMoveEvent;
 
     #endregion
 
@@ -28,7 +30,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions
         if (_controls == null)
             _controls = new Controls();
 
-        _controls.Player.AddCallbacks(this);
+        _controls.Player.SetCallbacks(this);
         _controls.Player.Enable();
     }
 
@@ -52,6 +54,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         Movement = context.ReadValue<Vector2>();
+        OnMovementEvent?.Invoke(Movement);
     }
 
     public void OnSprint(InputAction.CallbackContext context)
@@ -65,5 +68,6 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions
     public void OnMousePos(InputAction.CallbackContext context)
     {
         MouseScreenPos = context.ReadValue<Vector2>();
+        OnMouseMoveEvent?.Invoke(MouseScreenPos);
     }
 }
