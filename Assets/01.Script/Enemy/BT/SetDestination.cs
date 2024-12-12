@@ -12,14 +12,21 @@ public partial class SetDestinationAction : Action
     [SerializeReference] public BlackboardVariable<Enemy> Agent;
     protected override Status OnStart()
     {
-        Debug.Log("밍 시발");
         Agent.Value.Move();
-        return Status.Success;
+        return Status.Running;
     }
 
-    protected override void OnEnd()
+    protected override Status OnUpdate()
     {
-        Debug.Log("이동 끝남ㅋㅋ");
+        var col = Physics2D.OverlapCircle(Agent.Value.SelfAreaPosition, Agent.Value.selfAreaRadius, LayerMask.GetMask("Player"));
+        if(col == null)
+            return Status.Failure;
+        
+        Agent.Value.SetDestination(Physics2D.OverlapCircle(Agent.Value.transform.position, 10, LayerMask.GetMask("Player")).transform.position);
+        if(Agent.Value.isStopped == false)
+            return Status.Running;
+        else 
+            return Status.Success;
     }
 }
 
