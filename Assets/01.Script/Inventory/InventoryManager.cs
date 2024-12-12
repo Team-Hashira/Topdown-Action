@@ -51,4 +51,11 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     {
         _inventoryDictionary[inventory].AddItem(item);
     }
+    public void AddItem(EInventory inventory, ItemSO itemSO, int amount)
+    {
+        Item item = new Item();
+        item.itemSO = itemSO;
+        item.SetAmount(amount);
+        _inventoryDictionary[inventory].AddItem(item);
+    }
 }
