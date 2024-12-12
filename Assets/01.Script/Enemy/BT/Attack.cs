@@ -11,16 +11,10 @@ public partial class AttackAction : Action
     [SerializeReference] public BlackboardVariable<Enemy> Agent;
     protected override Status OnStart()
     {
-        return Status.Running;
-    }
-
-    protected override Status OnUpdate()
-    {
+        Vector2 dir = Agent.Value.CurrentTarget.transform.position - Agent.Value.transform.position;
+        dir = dir.normalized;
+        Agent.Value.EnemyAttack.Attack(dir);
         return Status.Success;
-    }
-
-    protected override void OnEnd()
-    {
     }
 }
 

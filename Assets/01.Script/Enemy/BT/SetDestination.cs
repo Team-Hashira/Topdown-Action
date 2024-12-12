@@ -21,8 +21,13 @@ public partial class SetDestinationAction : Action
         var col = Physics2D.OverlapCircle(Agent.Value.SelfAreaPosition, Agent.Value.selfAreaRadius, LayerMask.GetMask("Player"));
         if(col == null)
             return Status.Failure;
+
+        var target = Physics2D.OverlapCircle(Agent.Value.transform.position, 10, LayerMask.GetMask("Player"));
         
-        Agent.Value.SetDestination(Physics2D.OverlapCircle(Agent.Value.transform.position, 10, LayerMask.GetMask("Player")).transform.position);
+        if(target == null)
+            return Status.Failure;
+        
+        Agent.Value.SetDestination(target.transform.position);
         if(Agent.Value.isStopped == false)
             return Status.Running;
         else 

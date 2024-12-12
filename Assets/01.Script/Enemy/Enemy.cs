@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,9 +9,12 @@ public class Enemy : MonoBehaviour
 
     public Vector2 SelfAreaPosition { get; private set; }
     public float selfAreaRadius = 15.0f;
+
+    public EnemyAttack EnemyAttack { get; private set; }
     
     private void Awake()
     {
+        EnemyAttack = GetComponent<EnemyAttack>();
         _navmeshAgent = GetComponent<NavMeshAgent>();
         SelfAreaPosition = transform.position;
     }
@@ -21,19 +23,8 @@ public class Enemy : MonoBehaviour
     {
         SetDestination(CurrentTarget.position);
     }
-    
     public void SetDestination(Vector3 destination)
     {
         _navmeshAgent.destination = destination;
-    }
-
-    public void Attack()
-    {
-        StartCoroutine(CoroutineAttack());
-    }
-
-    private IEnumerator CoroutineAttack()
-    {
-        yield return new WaitForSeconds(1.5f);
     }
 }
