@@ -52,7 +52,7 @@ public class CameraManager : MonoSingleton<CameraManager>
     }
     public void ShakeCamera(float amplitude, float frequency, float time, Ease ease = Ease.Linear)
     {
-        if (_shakeSequence != null && _shakeSequence.IsActive()) _shakeSequence.Kill();
+            if (_shakeSequence != null && _shakeSequence.IsActive()) _shakeSequence.Kill();
         _shakeSequence = DOTween.Sequence();
         _shakeSequence
             .Append(

@@ -16,3 +16,9 @@ MonoBehaviour:
   - poolType: HitEffect
     prefab: {fileID: 5003451327091292352, guid: dee38b791a89cc34b917a3b68ad1ed8c, type: 3}
     poolCount: 10
+  - poolType: TreeEffect
+    prefab: {fileID: 5003451327091292352, guid: dee38b791a89cc34b917a3b68ad1ed8c, type: 3}
+    poolCount: 10
+  - poolType: RockEffect
+    prefab: {fileID: 5003451327091292352, guid: dee38b791a89cc34b917a3b68ad1ed8c, type: 3}
+    poolCount: 10
