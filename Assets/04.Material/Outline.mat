@@ -87,8 +87,8 @@ Material:
     - _DissolveNoiseScale: 50
     - _IsInline: 0
     - _IsThickLine: 0
-    - _Outline: 1
-    - _Scale: 1.376
+    - _Outline: 0
+    - _Scale: 1
     - _scale: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}

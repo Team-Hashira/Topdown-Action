@@ -8,6 +8,10 @@ public class MineableItem : MonoBehaviour, IDamageable
     private readonly int _blinkValue = Shader.PropertyToID("_Blink");
     [SerializeField]
     private ParticleSystem _particle;
+    [SerializeField]
+    private int _health = 3;
+    [SerializeField]
+    private ItemSO _item;
 
     private Tween _blinkTween;
 
@@ -22,6 +26,13 @@ public class MineableItem : MonoBehaviour, IDamageable
     {
         if (_blinkTween != null && _blinkTween.IsActive())
             _blinkTween.Kill();
+        _health--;
+        if (_health <= 0)
+        {
+            Item item = new Item();
+            item.ItemInit(_item, 1);
+            InventoryManager.Instance.AddItem(EInventory.Main, item);
+        }
         CameraManager.Instance.ShakeCamera(2, 1, 0.15f);
         _material.SetFloat(_blinkValue, 1);
         _blinkTween = DOTween.To(() => _material.GetFloat(_blinkValue), v => _material.SetFloat(_blinkValue, v), 0, 0.1f);
