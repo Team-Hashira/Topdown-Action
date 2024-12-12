@@ -54,7 +54,6 @@ public class CameraManager : MonoSingleton<CameraManager>
     {
         if (_shakeSequence != null && _shakeSequence.IsActive()) _shakeSequence.Kill();
         _shakeSequence = DOTween.Sequence();
-
         _shakeSequence
             .Append(
                 DOTween.To(() => amplitude,
