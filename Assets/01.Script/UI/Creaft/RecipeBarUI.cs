@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class RecipeBarUI : MonoBehaviour
@@ -14,8 +15,12 @@ public class RecipeBarUI : MonoBehaviour
     {
         _recipeView = recipeView;
         _button = GetComponent<Button>();
-        //_button
         _image.sprite = itemSO.itemSprite;
         _nameText.text = itemSO.name;
+    }
+
+    public void SetButtonEvent(UnityAction unityAction)
+    {
+        _button.onClick.AddListener(unityAction);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class RecipeView : MonoBehaviour
 {
+    [SerializeField] private RecipeDataView _recipeDataView;
     [SerializeField] private RecipeBarUI _recipeBarUI;
     [SerializeField] private List<ItemSO> items;
 
@@ -16,6 +17,7 @@ public class RecipeView : MonoBehaviour
         {
             RecipeBarUI recipeBar = Instantiate(_recipeBarUI, _scrollRect.content);
             recipeBar.Init(this, itemSO);
+            recipeBar.SetButtonEvent(() => _recipeDataView.SetItem(itemSO));
         });
     }
 }
