@@ -18,7 +18,7 @@ public class MineableItem : MonoBehaviour, IDamageable
         _material = _spriteRenderer.material;
     }
 
-    public void ApplyDamage()
+    public void ApplyDamage(GameObject owner)
     {
         if (_blinkTween != null && _blinkTween.IsActive())
             _blinkTween.Kill();
