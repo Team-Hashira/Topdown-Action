@@ -26,7 +26,8 @@ public class RecipeDataView : MonoBehaviour
         foreach (ItemSO item in itemSO.itemRecipe.Keys)
         {
             NeedItemUI needItemUI = Instantiate(_needItemUI, _needItemListTrm);
-            needItemUI.SetItem(itemSO, itemSO.itemRecipe[item]);
+            Debug.Log(item.itemName);
+            needItemUI.SetItem(item, itemSO.itemRecipe[item]);
         }
     }
 }

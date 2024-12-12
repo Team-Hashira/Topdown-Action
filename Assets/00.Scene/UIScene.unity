@@ -5035,7 +5035,7 @@ MonoBehaviour:
   _recipeBarUI: {fileID: 6061104188765542335, guid: c6d7fc39647e0db44a57479a30e8c555, type: 3}
   items:
   - {fileID: 11400000, guid: c0760f87fd86ca94fabeb48f98862626, type: 2}
-  - {fileID: 11400000, guid: cfab16e1798b613429125c2009b7021d, type: 2}
+  - {fileID: 11400000, guid: 7597fc0079734a049bf7f0dae53e0a15, type: 2}
 --- !u!1001 &1738005494
 PrefabInstance:
   m_ObjectHideFlags: 0

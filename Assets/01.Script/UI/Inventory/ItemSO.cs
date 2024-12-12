@@ -1,7 +1,9 @@
+using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public enum EItemType
+public enum EItemName
 {
     Stone,
     Wood,
@@ -20,8 +22,8 @@ public class ItemSO : ScriptableObject
     [TextArea]
     public string itemDescription;
     public Sprite itemSprite;
-    public EItemType itemType;
+    public EItemName itemType;
     public int maxOverlapAmount = 1;
 
-    public Dictionary<ItemSO, int> itemRecipe;
+    public SerializedDictionary<ItemSO, int> itemRecipe;
 }

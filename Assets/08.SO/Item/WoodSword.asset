@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5933e937a5b3d24d8a2e0592f7d9cdb, type: 3}
+  m_Name: WoodSword
+  m_EditorClassIdentifier: 
+  itemName: "\uB098\uBB34\uAC80"
+  itemDescription: "\uC774\uAC83\uC740 \uB098\uBB34\uB2E4\n\uB2E4\uC774\uC57C \uC544\uB2C8"
+  itemSprite: {fileID: 3376353165727692622, guid: 8bb18d2f54dfa344b99ef920ae960b3e, type: 3}
+  itemType: 1
+  maxOverlapAmount: 5
+  itemRecipe:
+    _serializedList:
+    - Key: {fileID: 11400000, guid: cfab16e1798b613429125c2009b7021d, type: 2}
+      Value: 1
+    - Key: {fileID: 11400000, guid: c0760f87fd86ca94fabeb48f98862626, type: 2}
+      Value: 1
