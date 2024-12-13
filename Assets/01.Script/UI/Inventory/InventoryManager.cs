@@ -42,8 +42,6 @@ public class InventoryManager : MonoSingleton<InventoryManager>
                 _inventoryDictionary.Add(inventory.inventoryEnum, inventory);
             });
 
-        _inventoryDictionary[EInventory.Quick].OnInventoryChanged += (index, item) => OnQuickSlotChangeEvent?.Invoke(index, item);
-
     }
 
     private void Update()
@@ -62,10 +60,20 @@ public class InventoryManager : MonoSingleton<InventoryManager>
             item.SetAmount(1);
             AddItem(EInventory.Main, item);
         }
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+            {
+                OnQuickSlotChangeEvent?.Invoke(i, GetSlot(EInventory.Quick, i).GetAssignedItem());
+            }
+        }
     }
 
-    public Slot GetQuickSlot(int index)
-        => _inventoryDictionary[EInventory.Quick].GetSlot(index);
+    public Slot GetSlot(EInventory inventory, int index)
+        => _inventoryDictionary[inventory].GetSlot(index);
+    public Slot GetSlot(EInventory inventory, Vector2Int pos)
+        => _inventoryDictionary[inventory].GetSlot(pos);
 
     public void AddItem(EInventory inventory, Item item)
     {
@@ -78,7 +86,6 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     }
     public void AddItem(EInventory inventory, ItemSO itemSO, int amount = 1)
     {
-        Debug.Log("ADD");
         if (_itemCountDictionary.ContainsKey(itemSO.itemEnum))
             _itemCountDictionary[itemSO.itemEnum]++;
         else
