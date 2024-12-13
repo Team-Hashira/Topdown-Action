@@ -45,4 +45,5 @@ public class ItemSO : ScriptableObject
     [HideInInspector]
     public string useTypeClassName;
 
+    public Vector3 position;
 }

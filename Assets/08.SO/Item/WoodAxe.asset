@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5933e937a5b3d24d8a2e0592f7d9cdb, type: 3}
+  m_Name: WoodAxe
+  m_EditorClassIdentifier: 
+  itemName: "\uB098\uBB34 \uB3C4\uB07C"
+  itemDescription: "\uC774\uAC83\uC740 \uB098\uBB34\uB2E4\n\uCCA0\uC544\uB2D8"
+  itemSprite: {fileID: -7355494490505048387, guid: ddd87fd6bc0e3004082b6de1a794e7c7, type: 3}
+  itemEnum: 0
+  maxOverlapAmount: 1
+  itemPivot: {x: 0, y: 0}
+  itemRecipe:
+    _serializedList:
+    - Key: {fileID: 11400000, guid: cfab16e1798b613429125c2009b7021d, type: 2}
+      Value: 1
+    - Key: {fileID: 11400000, guid: c0760f87fd86ca94fabeb48f98862626, type: 2}
+      Value: 1
+  itemUseType: 1
+  useTypeClassName: 
+  position: {x: 0.32, y: 0.46, z: 0}
