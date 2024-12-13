@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -26,5 +27,15 @@ public class Enemy : MonoBehaviour
     public void SetDestination(Vector3 destination)
     {
         _navmeshAgent.destination = destination;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(SelfAreaPosition, selfAreaRadius);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 10.0f);
+        Gizmos.color = Color.white;
     }
 }
