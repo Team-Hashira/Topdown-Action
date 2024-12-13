@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public enum EItemName
 {
-    Stone,
+    Stone = 0,
     Wood,
     Copper,
     Iron,
     Ruby,
     Branch,
     Leaf,
-    Soil
+    Soil,
+
+
+
+
+    WoodSword = 1000,
+
 }
 
 [CreateAssetMenu(fileName = "ItemSO", menuName = "SO/Item/Item")]

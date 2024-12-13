@@ -13,6 +13,7 @@ public class RecipeDataView : MonoBehaviour
 
     public void SetItem(ItemSO itemSO)
     {
+        _createButton.onClick.RemoveAllListeners();
         _content.SetActive(true);
         _itemImage.sprite = itemSO.itemSprite;
         _itemName.text = itemSO.itemName;
@@ -26,8 +27,9 @@ public class RecipeDataView : MonoBehaviour
         foreach (ItemSO item in itemSO.itemRecipe.Keys)
         {
             NeedItemUI needItemUI = Instantiate(_needItemUI, _needItemListTrm);
-            Debug.Log(item.itemName);
             needItemUI.SetItem(item, itemSO.itemRecipe[item]);
         }
+
+        _createButton.onClick.AddListener(() => InventoryManager.Instance.AddItem(EInventory.Main, itemSO));
     }
 }

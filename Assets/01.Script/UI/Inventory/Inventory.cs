@@ -1,4 +1,5 @@
 using NUnit.Framework.Constraints;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,59 +8,69 @@ public class Inventory : MonoBehaviour
     public EInventory inventoryEnum;
     [SerializeField] private Vector2Int _inventorySize;
     [SerializeField] private ItemSO _itemSO;
-    private List<List<Slot>> _slots;
+    private List<Slot> _slots;
     public Transform dragItemTrm;
+
+    public event Action<int, Item> OnInventoryChanged;
 
     public void Init()
     {
-        _slots = new List<List<Slot>>();
-        for (int i = 0; i < _inventorySize.y; i++)
+        _slots = new List<Slot>();
+        for (int i = 0; i < _inventorySize.y * _inventorySize.x; i++)
         {
-            List<Slot> slotLine = new List<Slot>();
-            for (int j = 0; j < _inventorySize.x; j++)
-            {
-                Slot slot = transform.GetChild(j + i * _inventorySize.x).GetComponent<Slot>();
-                slot.SlotInit(this);
-                slotLine.Add(slot);
-            }
-            _slots.Add(slotLine);
+            Slot slot = transform.GetChild(i).GetComponent<Slot>();
+            slot.SlotInit(this);
+            slot.OnSlotChangedEvent += item => OnInventoryChanged?.Invoke(i, item);
+            _slots.Add(slot);
         }
 
         if (_slots.Count != 0)
         {
             Item item = new Item();
             item.ItemInit(_itemSO);
-            _slots[0][0].AssignItem(item);
+            _slots[0].AssignItem(item);
         }
     }
 
     public void AddItem(Item itme)
     {
-        for (int i = 0; i < _inventorySize.y; i++)
+        for (int i = 0; i < _inventorySize.y * _inventorySize.x; i++)
         {
-            for (int j = 0; j < _inventorySize.x; j++)
+            if (itme.Amount == 0) return;
+            if (_slots[i].TryGetAssignedItem(out Item slotItem) &&
+                slotItem.IsSameItem(itme) && slotItem.IsFull() == false)
             {
-                if (itme.Amount == 0) return;
-                if (_slots[i][j].TryGetAssignedItem(out Item slotItem) &&
-                    slotItem.IsSameItem(itme) && slotItem.IsFull() == false)
-                {
-                    int remain = slotItem.AddAmount(itme.Amount);
-                    itme.SetAmount(remain);
-                }
+                int remain = slotItem.AddAmount(itme.Amount);
+                itme.SetAmount(remain);
             }
         }
 
-        for (int i = 0; i < _inventorySize.y; i++)
+        for (int i = 0; i < _inventorySize.y * _inventorySize.x; i++)
         {
-            for (int j = 0; j < _inventorySize.x; j++)
+            if (itme.Amount == 0) return;
+            if (_slots[i].GetAssignedItem() == null)
             {
-                if (itme.Amount == 0) return;
-                if (_slots[i][j].GetAssignedItem() == null)
-                {
-                    _slots[i][j].AssignItem(itme);
-                    return;
-                }
+                _slots[i].AssignItem(itme);
+                return;
             }
         }
+    }
+
+    public Slot GetSlot(int index)
+    {
+        if (_slots.Count > index)
+        {
+            return _slots[index];
+        }
+        return null;
+    }
+    public Slot GetSlot(Vector2Int pos)
+    {
+        if (_slots.Count / _inventorySize.x > pos.y && 
+            _slots.Count / _inventorySize.y > pos.x)
+        {
+            return _slots[pos.x + pos.y * _inventorySize.x];
+        }
+        return null;
     }
 }
