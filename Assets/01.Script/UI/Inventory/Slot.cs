@@ -15,6 +15,8 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IB
     private Vector3 _dragStartPos;
     private bool _isDrag;
 
+    public event Action<Item> OnSlotChangedEvent;
+
     public void SlotInit(Inventory inventory)
     {
         _inventory = inventory;
@@ -40,6 +42,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IB
             item.OnChangedAmount -= HandleChangedAmountEvent;
         }
         _assignedItem = item;
+        OnSlotChangedEvent?.Invoke(_assignedItem);
 
         if (_assignedItem != null) _assignedItem.OnChangedAmount += HandleChangedAmountEvent;
     }

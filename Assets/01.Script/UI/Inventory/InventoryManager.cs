@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
 {
     [SerializeField] private ItemSO _itemSO;
     private Dictionary<EInventory, Inventory> _inventoryDictionary;
+    private Dictionary<EItemName, int> _itemCountDictionary;
     private Slot _dragSlot;
     public Slot DragSlot
     {
@@ -25,8 +27,11 @@ public class InventoryManager : MonoSingleton<InventoryManager>
         set => _pointerSlot = value;
     }
 
+    public Action<int, Item> OnQuickSlotChangeEvent;
+
     private void Awake()
     {
+        _itemCountDictionary = new Dictionary<EItemName, int>();
         _inventoryDictionary = new Dictionary<EInventory, Inventory>();
         FindObjectsByType<Inventory>(FindObjectsSortMode.None).ToList()
             .ForEach(inventory =>
@@ -34,6 +39,9 @@ public class InventoryManager : MonoSingleton<InventoryManager>
                 inventory.Init();
                 _inventoryDictionary.Add(inventory.inventoryEnum, inventory);
             });
+
+        _inventoryDictionary[EInventory.Quick].OnInventoryChanged += (index, item) => OnQuickSlotChangeEvent?.Invoke(index, item);
+
     }
 
     private void Update()
@@ -47,12 +55,25 @@ public class InventoryManager : MonoSingleton<InventoryManager>
         }
     }
 
+    public Slot GetQuickSlot(int index)
+        => _inventoryDictionary[EInventory.Quick].GetSlot(index);
+
     public void AddItem(EInventory inventory, Item item)
     {
+        if (_itemCountDictionary.TryGetValue(item.itemSO.itemType, out int amount))
+            _itemCountDictionary[item.itemSO.itemType] = amount + 1;
+        else 
+            _itemCountDictionary[item.itemSO.itemType] = 0;
+
         _inventoryDictionary[inventory].AddItem(item);
     }
-    public void AddItem(EInventory inventory, ItemSO itemSO, int amount)
+    public void AddItem(EInventory inventory, ItemSO itemSO, int amount = 1)
     {
+        if (_itemCountDictionary.TryGetValue(itemSO.itemType, out int dictAmount))
+            _itemCountDictionary[itemSO.itemType] = dictAmount + 1;
+        else
+            _itemCountDictionary[itemSO.itemType] = 0;
+
         Item item = new Item();
         item.itemSO = itemSO;
         item.SetAmount(amount);
