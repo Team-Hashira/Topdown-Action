@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
 
     private readonly int _blinkValue = Shader.PropertyToID("_Blink");
 
-    private Sequence _blinkSequence;
+    private Sequence _onHitSequence;
 
     [SerializeField]
     private HealthPrototype _health;
@@ -26,13 +26,15 @@ public class HealthBar : MonoBehaviour
 
     private void HandleOnHPChangeEvent(float prev, float current)
     {
-        if (_blinkSequence != null && _blinkSequence.IsActive())
-            _blinkSequence.Kill();
+        if (_onHitSequence != null && _onHitSequence.IsActive())
+            _onHitSequence.Complete();
         float ratio = current / _health.MaxHP;
-        _pivotTrm.transform.localScale = new Vector2(1, ratio);
+        _pivotTrm.transform.localScale = new Vector2(ratio, 1);
+        _onHitSequence = DOTween.Sequence();
         _barMaterial.SetFloat(_blinkValue, 1);
         _borderMaterial.SetFloat(_blinkValue, 1);
-        _blinkSequence.Append(DOTween.To(() => _barMaterial.GetFloat(_blinkValue), v => _barMaterial.SetFloat(_blinkValue, v), 0, 0.15f));
-        _blinkSequence.Join(DOTween.To(() => _borderMaterial.GetFloat(_blinkValue), v => _borderMaterial.SetFloat(_blinkValue, v), 0, 0.15f));
+        _onHitSequence.Append(DOTween.To(() => _barMaterial.GetFloat(_blinkValue), v => _barMaterial.SetFloat(_blinkValue, v), 0, 0.15f));
+        _onHitSequence.Join(DOTween.To(() => _borderMaterial.GetFloat(_blinkValue), v => _borderMaterial.SetFloat(_blinkValue, v), 0, 0.15f));
+        _onHitSequence.Join(transform.DOLocalMoveY(transform.localPosition.y - 0.15f, 0.075f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.InOutSine));
     }
 }

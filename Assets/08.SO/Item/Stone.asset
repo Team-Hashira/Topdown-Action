@@ -17,3 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 133177f5811aded4995e8f89f46aee00, type: 3}
   itemType: 0
   maxOverlapAmount: 5
+  itemRecipe:
+    _serializedList: []
+  itemUseType: 0
+  useTypeClassName: Use Type Class Name

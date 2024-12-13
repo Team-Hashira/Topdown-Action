@@ -31,8 +31,8 @@ public class MineableItem : MonoBehaviour
     {
         Item item = new Item();
         item.ItemInit(_item, 1);
-        InventoryManager.Instance.AddItem(EInventory.Main, item);
         Destroy(gameObject);
+        //InventoryManager.Instance.AddItem(EInventory.Main, item);
     }
 
     private void HandleOnHPChangeEvent(float prev, float current)
