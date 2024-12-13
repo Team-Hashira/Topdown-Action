@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5933e937a5b3d24d8a2e0592f7d9cdb, type: 3}
-  m_Name: WoodSword
+  m_Name: WoodAxe
   m_EditorClassIdentifier: 
-  itemName: "\uB098\uBB34 \uAC80"
-  itemDescription: "\uC774\uAC83\uC740 \uB098\uBB34\uB2E4\n\uB2E4\uC774\uC57C \uC544\uB2C8"
-  itemSprite: {fileID: -6622386945214111845, guid: f36396314df507a4fac3eb39a24c4584, type: 3}
+  itemName: "\uB098\uBB34 \uB3C4\uB07C"
+  itemDescription: "\uC774\uAC83\uC740 \uB098\uBB34\uB2E4\n\uCCA0\uC544\uB2D8"
+  itemSprite: {fileID: -7355494490505048387, guid: ddd87fd6bc0e3004082b6de1a794e7c7, type: 3}
   itemEnum: 0
   maxOverlapAmount: 1
   itemPivot: {x: 0, y: 0}
@@ -26,4 +26,4 @@ MonoBehaviour:
       Value: 1
   itemUseType: 1
   useTypeClassName: 
-  position: {x: 0.317, y: 0.677, z: 0}
+  position: {x: 0.32, y: 0.46, z: 0}

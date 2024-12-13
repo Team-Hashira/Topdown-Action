@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
     private Animator _animator;
+
+    [SerializeField]
+    private ItemSO _currentItem;
 
     private int _currentAttackCount = 0;
     [SerializeField]
@@ -21,13 +25,33 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]
     private int _maxDetectEnemy;
 
+    private SpriteRenderer _weaponSpriteRenderer;
+
     private PlayerController _player;
+
+    [SerializeField]
+    private ItemSO _testItem, _testItem2;
 
     public void Initialize(PlayerController player)
     {
         _player = player;
         _targets = new Collider2D[_maxDetectEnemy];
         _animator = GetComponent<Animator>();
+        _weaponSpriteRenderer = transform.Find("Pivot/Visual").GetComponent<SpriteRenderer>();
+        Item item = new Item();
+        item.ItemInit(_testItem);
+        InventoryManager.Instance.GetSlot(EInventory.Quick, 0).AssignItem(item);
+        item = new Item();
+        item.ItemInit(_testItem2);
+        InventoryManager.Instance.GetSlot(EInventory.Quick, 1).AssignItem(item);
+        InventoryManager.Instance.OnQuickSlotChangeEvent += HandleOnQuickSlotChangeEvent;
+    }
+
+    private void HandleOnQuickSlotChangeEvent(int num, Item item)
+    {
+        _currentItem = item.itemSO;
+        _weaponSpriteRenderer.sprite = _currentItem.itemSprite;
+        _weaponSpriteRenderer.transform.localPosition = _currentItem.position;
     }
 
     private void Update()
