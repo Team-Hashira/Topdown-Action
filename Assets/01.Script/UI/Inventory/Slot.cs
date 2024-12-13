@@ -30,12 +30,13 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IB
 
         if (item == null)
         {
+            Debug.Log("NullAssign");
             _itemImage.color = new Color(1, 1, 1, 0);
             _amountText.text = "";
         }
         else
         {
-            Debug.Log("Assign");
+            Debug.Log("ItemAssign");
             _itemImage.sprite = item.itemSO.itemSprite;
             _itemImage.color = new Color(1, 1, 1, 1);
             _amountText.text = item.Amount.ToString();
@@ -50,6 +51,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IB
     private void HandleChangedAmountEvent(int prevAmount, int newAmount)
     {
         _amountText.text = newAmount.ToString();
+        OnSlotChangedEvent?.Invoke(_assignedItem);
     }
 
     public void ChangeSlot(Slot slot)

@@ -17,7 +17,7 @@ public class RecipeView : MonoBehaviour
         {
             RecipeBarUI recipeBar = Instantiate(_recipeBarUI, _scrollRect.content);
             recipeBar.Init(this, itemSO);
-            recipeBar.SetButtonEvent(() => _recipeDataView.SetItem(itemSO));
+            recipeBar.SetButtonEvent(() => _recipeDataView.ShowRecipeData(itemSO));
         });
     }
 }
