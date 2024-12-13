@@ -15,7 +15,6 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     [SerializeField] private ItemSO _itemSO1;
     [SerializeField] private ItemSO _itemSO2;
     private Dictionary<EInventory, Inventory> _inventoryDictionary;
-    private Dictionary<EItemName, int> _itemCountDictionary;
     private Slot _dragSlot;
     public Slot DragSlot
     {
@@ -33,7 +32,6 @@ public class InventoryManager : MonoSingleton<InventoryManager>
 
     private void Awake()
     {
-        _itemCountDictionary = new Dictionary<EItemName, int>();
         _inventoryDictionary = new Dictionary<EInventory, Inventory>();
         FindObjectsByType<Inventory>(FindObjectsSortMode.None).ToList()
             .ForEach(inventory =>
@@ -41,7 +39,6 @@ public class InventoryManager : MonoSingleton<InventoryManager>
                 inventory.Init();
                 _inventoryDictionary.Add(inventory.inventoryEnum, inventory);
             });
-
     }
 
     private void Update()
@@ -77,20 +74,10 @@ public class InventoryManager : MonoSingleton<InventoryManager>
 
     public void AddItem(EInventory inventory, Item item)
     {
-        if (_itemCountDictionary.ContainsKey(item.itemSO.itemEnum))
-            _itemCountDictionary[item.itemSO.itemEnum]++;
-        else 
-            _itemCountDictionary[item.itemSO.itemEnum] = 1;
-
         _inventoryDictionary[inventory].AddItem(item);
     }
     public void AddItem(EInventory inventory, ItemSO itemSO, int amount = 1)
     {
-        if (_itemCountDictionary.ContainsKey(itemSO.itemEnum))
-            _itemCountDictionary[itemSO.itemEnum]++;
-        else
-            _itemCountDictionary[itemSO.itemEnum] = 1;
-
         Item item = new Item();
         item.itemSO = itemSO;
         item.SetAmount(amount);
@@ -98,20 +85,10 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     }
     public void RemoveItem(EInventory inventory, Item item)
     {
-        if (_itemCountDictionary.ContainsKey(item.itemSO.itemEnum))
-            _itemCountDictionary[item.itemSO.itemEnum]--;
-        else
-            return;
-
         _inventoryDictionary[inventory].AddItem(item);
     }
     public void RemoveItem(EInventory inventory, ItemSO itemSO, int amount = 1)
     {
-        if (_itemCountDictionary.ContainsKey(itemSO.itemEnum))
-            _itemCountDictionary[itemSO.itemEnum]--;
-        else
-            return;
-
         Item item = new Item();
         item.itemSO = itemSO;
         item.SetAmount(amount);
@@ -119,10 +96,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     }
     public int GetItemAmount(EInventory inventory, EItemName eItemName)
     {
-        if (_itemCountDictionary.TryGetValue(eItemName, out int itemAmount))
-            return itemAmount;
-        else
-            return 0;
+        return _inventoryDictionary[inventory].GetItemAmount(eItemName);
     }
     public void AddChangeListener(EInventory inventory, Action<int, Item> action)
     {

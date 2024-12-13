@@ -30,13 +30,12 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IB
 
         if (item == null)
         {
-            Debug.Log("NullAssign");
             _itemImage.color = new Color(1, 1, 1, 0);
             _amountText.text = "";
         }
         else
         {
-            Debug.Log("ItemAssign");
+            Debug.Log($"[{item.itemSO.itemName}]Assign");
             _itemImage.sprite = item.itemSO.itemSprite;
             _itemImage.color = new Color(1, 1, 1, 1);
             _amountText.text = item.Amount.ToString();
