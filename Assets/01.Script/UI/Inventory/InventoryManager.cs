@@ -63,7 +63,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
 
         for (int i = 0; i < 9; i++)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
                 OnQuickSlotChangeEvent?.Invoke(i, GetSlot(EInventory.Quick, i).GetAssignedItem());
             }
