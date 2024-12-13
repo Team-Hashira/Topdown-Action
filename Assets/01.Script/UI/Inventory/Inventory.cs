@@ -11,10 +11,12 @@ public class Inventory : MonoBehaviour
     public Transform dragItemTrm;
 
     public Action<int, Item> OnInventoryChanged;
+    private Dictionary<EItemName, int> _itemCountDictionary;
 
     public void Init()
     {
         _slots = new List<Slot>();
+        _itemCountDictionary = new Dictionary<EItemName, int>();
         for (int i = 0; i < _inventorySize.y * _inventorySize.x; i++)
         {
             Slot slot = transform.GetChild(i).GetComponent<Slot>();
@@ -26,6 +28,12 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        if (_itemCountDictionary.ContainsKey(item.itemSO.itemEnum))
+            _itemCountDictionary[item.itemSO.itemEnum]++;
+        else
+            _itemCountDictionary[item.itemSO.itemEnum] = 1;
+
+
         for (int i = 0; i < _inventorySize.y * _inventorySize.x; i++)
         {
             if (item.Amount == 0) return;
@@ -50,6 +58,11 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(Item item)
     {
+        if (_itemCountDictionary.ContainsKey(item.itemSO.itemEnum))
+            _itemCountDictionary[item.itemSO.itemEnum]--;
+        else
+            return;
+
         for (int i = _inventorySize.y * _inventorySize.x - 1; i >= 0; i--)
         {
             if (item.Amount == 0) return;
@@ -62,6 +75,13 @@ public class Inventory : MonoBehaviour
                 item.SetAmount(remain);
             }
         }
+    }
+    public int GetItemAmount(EItemName eItemName)
+    {
+        if (_itemCountDictionary.TryGetValue(eItemName, out int itemAmount))
+            return itemAmount;
+        else
+            return 0;
     }
 
     public Slot GetSlot(int index)
