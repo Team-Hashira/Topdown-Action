@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5933e937a5b3d24d8a2e0592f7d9cdb, type: 3}
   m_Name: WoodSword
   m_EditorClassIdentifier: 
-  itemName: "\uB098\uBB34\uAC80"
+  itemName: "\uB098\uBB34 \uAC80"
   itemDescription: "\uC774\uAC83\uC740 \uB098\uBB34\uB2E4\n\uB2E4\uC774\uC57C \uC544\uB2C8"
   itemSprite: {fileID: 3376353165727692622, guid: 8bb18d2f54dfa344b99ef920ae960b3e, type: 3}
-  itemType: 1
-  maxOverlapAmount: 5
+  itemType: 1000
+  maxOverlapAmount: 1
   itemRecipe:
     _serializedList:
     - Key: {fileID: 11400000, guid: cfab16e1798b613429125c2009b7021d, type: 2}

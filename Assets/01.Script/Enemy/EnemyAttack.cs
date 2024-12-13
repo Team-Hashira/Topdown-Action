@@ -1,16 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using Crogen.CrogenPooling;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private EffectPoolType _attackEffect;
+    [SerializeField] private Transform _attackEffectOffsetTrm;
+    public void Attack(Vector2 dir)
     {
-        
+        StartCoroutine(CoroutineAttack(dir));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator CoroutineAttack(Vector2 dir)
     {
-        
+        print("공격햇엉");
+        gameObject.Pop(_attackEffect, _attackEffectOffsetTrm.position, Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
     }
 }
