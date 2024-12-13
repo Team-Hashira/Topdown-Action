@@ -15,7 +15,7 @@ public class SwitchUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             _isOn = !_isOn;
             if (_isOn)
@@ -26,8 +26,13 @@ public class SwitchUI : MonoBehaviour
             else
             {
                 _creaft.SetActive(false);
-                _inventory.SetActive(true);
+                _inventory.SetActive(false);
             }
+        }
+        if (_isOn && Input.GetKeyDown(KeyCode.Tab))
+        {
+            _creaft.SetActive(!_creaft.activeSelf);
+            _inventory.SetActive(!_inventory.activeSelf);
         }
     }
 }

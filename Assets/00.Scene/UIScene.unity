@@ -785,7 +785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryEnum: 1
   _inventorySize: {x: 9, y: 1}
-  _itemSO: {fileID: 11400000, guid: cfab16e1798b613429125c2009b7021d, type: 2}
   dragItemTrm: {fileID: 575308164}
 --- !u!1 &342150655
 GameObject:
@@ -2517,7 +2516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryEnum: 0
   _inventorySize: {x: 9, y: 3}
-  _itemSO: {fileID: 11400000, guid: c0760f87fd86ca94fabeb48f98862626, type: 2}
   dragItemTrm: {fileID: 575308164}
 --- !u!1 &1077617930
 GameObject:
@@ -6656,6 +6654,6 @@ SceneRoots:
   - {fileID: 259405574}
   - {fileID: 417741464}
   - {fileID: 342150658}
-  - {fileID: 565125722}
   - {fileID: 1077863716}
   - {fileID: 1053252691}
+  - {fileID: 565125722}

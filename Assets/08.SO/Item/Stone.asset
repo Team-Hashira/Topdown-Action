@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   itemName: "\uB3CC"
-  itemDescription: "\uC774\uAC83\uC740 \uB3CC\uC774\uB2E4."
-  itemSprite: {fileID: 21300000, guid: 133177f5811aded4995e8f89f46aee00, type: 3}
-  itemType: 0
+  itemDescription: "\uC774\uAC83\uC740 \uB3CC\uC774\uB2E4\n"
+  itemSprite: {fileID: -1621537325, guid: a5f45744aa6183b4ab65016231d663a8, type: 3}
+  itemEnum: 0
   maxOverlapAmount: 5
+  itemPivot: {x: 0, y: 0}
   itemRecipe:
     _serializedList: []
   itemUseType: 0
   useTypeClassName: Use Type Class Name
+  position: {x: 0, y: 0, z: 0}

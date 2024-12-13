@@ -18,6 +18,7 @@ public enum EItemName
 
 
     WoodSword = 1000,
+    WoodAxe,
 
 }
 
