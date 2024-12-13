@@ -2,6 +2,6 @@ namespace Crogen.CrogenPooling
 {
     public enum EffectPoolType
     {
-        HitEffect, 
+        HitEffect, TreeEffect, RockEffect, 
     }
 }

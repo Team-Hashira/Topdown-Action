@@ -21,6 +21,13 @@ public enum EItemName
 
 }
 
+public enum EItemUseType
+{
+    None,
+    Default,
+    Custom
+}
+
 [CreateAssetMenu(fileName = "ItemSO", menuName = "SO/Item/Item")]
 public class ItemSO : ScriptableObject
 {
@@ -33,4 +40,9 @@ public class ItemSO : ScriptableObject
     public Vector2 itemPivot;
 
     public SerializedDictionary<ItemSO, int> itemRecipe;
+
+    public EItemUseType itemUseType;
+    [HideInInspector]
+    public string useTypeClassName;
+
 }

@@ -35,7 +35,6 @@ public class PlayerWeapon : MonoBehaviour
         if(_lastAttackTime + _comboHoldTime < Time.time && _isAnimationEnd && _currentAttackCount != 0)
         {
             _currentAttackCount = 0;
-            Debug.Log("��..");
             _animator.SetInteger("AttackCounter", _currentAttackCount);
             _animator.SetTrigger("Initialize");
         }
