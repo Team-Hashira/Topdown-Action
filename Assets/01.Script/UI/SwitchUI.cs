@@ -20,13 +20,13 @@ public class SwitchUI : MonoBehaviour
             _isOn = !_isOn;
             if (_isOn)
             {
-                _creaft.SetActive(false);
-                _inventory.SetActive(true);
+                _creaft.SetActive(true);
+                _inventory.SetActive(false);
             }
             else
             {
-                _creaft.SetActive(true);
-                _inventory.SetActive(false);
+                _creaft.SetActive(false);
+                _inventory.SetActive(true);
             }
         }
     }

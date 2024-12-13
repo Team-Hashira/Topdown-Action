@@ -49,7 +49,7 @@ public class Item
         OnChangedAmount?.Invoke(prevAmount, Amount);
     }
     public bool IsSameItem(Item targetItem)
-        => itemSO.itemType == targetItem.itemSO.itemType;
+        => itemSO.itemEnum == targetItem.itemSO.itemEnum;
     public bool IsFull()
         => Amount == itemSO.maxOverlapAmount;
 

@@ -28,8 +28,9 @@ public class ItemSO : ScriptableObject
     [TextArea]
     public string itemDescription;
     public Sprite itemSprite;
-    public EItemName itemType;
+    public EItemName itemEnum;
     public int maxOverlapAmount = 1;
+    public Vector2 itemPivot;
 
     public SerializedDictionary<ItemSO, int> itemRecipe;
 }
