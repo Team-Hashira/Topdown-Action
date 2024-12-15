@@ -1,7 +1,7 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Crogen.CrogenPooling.SoundPlayer
 {
@@ -120,3 +120,4 @@ namespace Crogen.CrogenPooling.SoundPlayer
         }
     }
 }
+#endif
