@@ -966,6 +966,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3789126692595812737, guid: ea62d0465f31a5d4cbc8ce6e09f28b38, type: 3}
+      propertyPath: <HP>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789126692595812737, guid: ea62d0465f31a5d4cbc8ce6e09f28b38, type: 3}
+      propertyPath: <MaxHP>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4338177241277848140, guid: ea62d0465f31a5d4cbc8ce6e09f28b38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1005,10 +1013,6 @@ PrefabInstance:
     - target: {fileID: 4338177241277848140, guid: ea62d0465f31a5d4cbc8ce6e09f28b38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8817475760713332880, guid: ea62d0465f31a5d4cbc8ce6e09f28b38, type: 3}
-      propertyPath: selfAreaRadius
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

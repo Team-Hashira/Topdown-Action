@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Crogen.CrogenPooling;
 using UnityEngine;
 
@@ -7,6 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private EffectPoolType _attackEffect;
     [SerializeField] private Transform _attackEffectOffsetTrm;
+    
     public void Attack(Vector2 dir)
     {
         StartCoroutine(CoroutineAttack(dir));
