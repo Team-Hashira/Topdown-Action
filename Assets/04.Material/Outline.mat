@@ -35,6 +35,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PixelOutline_54031976004e43e188b43bea614432d9_MainTex_1405526442_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PixelOutline_59ba3a85a579497da99caacbb5b4795b_MainTex_1405526442_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PixelOutline_79ff5f9df6244f60870933bed7e4745e_MainTex_1405526442_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PixelOutline_7d47a4f3e7b048a4832070e4986dcd00_MainTex_1405526442_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2ba5aaef85f84ea98187ae37491c9784_Texture_1_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -87,7 +103,7 @@ Material:
     - _DissolveNoiseScale: 50
     - _IsInline: 0
     - _IsThickLine: 0
-    - _Outline: 0
+    - _Outline: 1
     - _Scale: 1
     - _scale: 1
     m_Colors:
@@ -95,6 +111,7 @@ Material:
     - _BlinkColor: {r: 0.9883374, g: 0.9883374, b: 0.9883374, a: 1}
     - _DissolveColor: {r: 2.3396215, g: 5.426196, b: 8, a: 0}
     - _LineDir: {r: 1, g: 1, b: 1, a: 1}
+    - _MainTex_TexelSize: {r: 0, g: 0, b: 0, a: 0}
     - _NormalMap: {r: 0, g: 0, b: 0, a: 0}
     - _NormalTex: {r: 0, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
