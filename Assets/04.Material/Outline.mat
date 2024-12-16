@@ -98,7 +98,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Blink: 0
-    - _Dissolve: 0
+    - _Dissolve: 0.412
     - _DissolveInterval: 0.05
     - _DissolveNoiseScale: 50
     - _IsInline: 0
@@ -112,6 +112,7 @@ Material:
     - _DissolveColor: {r: 2.3396215, g: 5.426196, b: 8, a: 0}
     - _LineDir: {r: 1, g: 1, b: 1, a: 1}
     - _MainTex_TexelSize: {r: 0, g: 0, b: 0, a: 0}
+    - _MainTex_TexelSize1: {r: 1, g: 1, b: 1024, a: 96}
     - _NormalMap: {r: 0, g: 0, b: 0, a: 0}
     - _NormalTex: {r: 0, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
